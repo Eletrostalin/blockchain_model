@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/" method="POST">
+
+    <div class="mb-3">
+        <label for="exampleInputLender">Кредитор</label>
+        <input type="text" class="form-control" id="exampleInputLender" name="lender">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputAmount">Сумма</label>
+        <input type="text" class="form-control" id="exampleInputAmount" name="amount">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputBorrower">Заемщик</label>
+        <input type="text" class="form-control" id="exampleInputBorrower" name="borrower">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Подтвердить</button>
+</form>
+
+{% endblock %}
+
+{% block check %}
+    {% if results %}
+        {% for res in results %}
+        <div class="result">
+            block {{ res['block'] }} : {{ res['result'] }}
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
